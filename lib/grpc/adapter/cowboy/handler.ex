@@ -443,6 +443,7 @@ defmodule GRPC.Adapter.Cowboy.Handler do
   defp extract_subtype("application/grpc"), do: {:ok, "proto"}
   defp extract_subtype("application/grpc+"), do: {:ok, "proto"}
   defp extract_subtype("application/grpc;"), do: {:ok, "proto"}
+  defp extract_subtype("application/grpc-web+proto"), do: {:ok, "proto"}
 
   defp extract_subtype(<<"application/grpc+", rest::binary>>), do: {:ok, rest}
   defp extract_subtype(<<"application/grpc;", rest::binary>>), do: {:ok, rest}
